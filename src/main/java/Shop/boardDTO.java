@@ -1,18 +1,29 @@
 package Shop;
 
+import java.sql.Date;
+
 public class boardDTO {
 	private int No;
 	private String name;
 	private String title;
 	private String content;
-	private String view;
-	private String date;
+	private int view;
+	private Date date;
 	
 	public boardDTO() {
 		
 	}
 	
-	public boardDTO(int No,String name,String title,String view, String date) {
+	public boardDTO(String title,String name,Date date,int view,String content) {
+	
+		this.title = title;
+		this.name = name;
+		this.date = date;
+		this.view = view;
+		this.content = content;
+	}
+	
+	public boardDTO(int No,String name,String title,int view, Date date) {
 		this.No = No;
 		this.name = name;
 		this.title = title;
@@ -30,6 +41,12 @@ public class boardDTO {
 		this.content = content;
 	}
 	
+	public boardDTO(String title,String content,int no) {
+		this.title = title;
+		this.content = content;
+		this.No=no;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -42,11 +59,11 @@ public class boardDTO {
 		return content;
 	}
 	
-	public String getView() {
+	public int getView() {
 		return view;
 	}
 	
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 	public int getNo() {
@@ -67,11 +84,11 @@ public class boardDTO {
 		this.content = content;
 	}
 	
-	public void setView(String view) {
+	public void setView(int view) {
 		this.view = view;
 	}
 	
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	

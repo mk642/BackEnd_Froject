@@ -10,6 +10,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+
 public class boardDAO {
 	private Connection getConnection() throws Exception {
         Context initCtx = new InitialContext();
@@ -22,7 +23,7 @@ public class boardDAO {
 
 
 		public void insertBoard(boardDTO dto) {
-		    String sql = "insert into forum(name,title,content, date) values(?,?,?,CURDATE())";
+		    String sql = "insert into forum(name,title,content) values(?,?,?)";
 		
 		    try (Connection con = getConnection(); 
 		         PreparedStatement pstmt = con.prepareStatement(sql)) { 
@@ -47,7 +48,7 @@ public class boardDAO {
 	    
 	            while(rs.next()) {
 	            	boardDTO dto = new boardDTO(rs.getInt("No"),rs.getString("name"),
-	            			rs.getString("title"),rs.getString("view"),rs.getString("date"));
+	            			rs.getString("title"),rs.getInt("view"),rs.getDate("date"));
 	            	
 	                dtos.add(dto);
 	            }
@@ -70,17 +71,72 @@ public class boardDAO {
 				e.printStackTrace();
 			}
 		}		
-		//게시판 삭제
-		public void deleteBoard(boardDTO dto) {
-			String sql = "DELETE FROM forum WHERE No = ?";
+//		//게시판 삭제
+//		public void deleteBoard(boardDTO dto) {
+//			String sql = "DELETE FROM forum WHERE No = ?";
+//		
+//			try (Connection con = getConnection();
+//				 PreparedStatement pstmt = con.prepareStatement(sql)) {
+//				pstmt.setInt(1, dto.getNo());
+//				pstmt.executeUpdate();
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
 		
-			try (Connection con = getConnection();
-				 PreparedStatement pstmt = con.prepareStatement(sql)) {
-				pstmt.setInt(1, dto.getNo());
-				pstmt.executeUpdate();
+		public void deleteOne(String no) {
+			String sql = "delete from comment where fno= ?";
+			String sql2 = "DELETE FROM forum WHERE No = ?";
+			
+			try(Connection con = getConnection();
+					PreparedStatement pstmt = con.prepareStatement(sql);
+					PreparedStatement pstmt2 = con.prepareStatement(sql2);) 
+				{	pstmt.setString(1, no);
+					pstmt.executeQuery();
+					pstmt2.setString(1, no);
+					pstmt2.executeQuery();
+					
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			
+		}
+		
+		public boardDTO selectOne(int No) {
+			boardDTO dto = null;
+			String sql = "select * from forum where No = ?";
+			
+			try(Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);) 
+			{	pstmt.setInt(1, No);
+				ResultSet rs = pstmt.executeQuery();
+				
+				if(rs.next()){
+					dto = new boardDTO(rs.getString("title"), rs.getString("name"),rs.getDate("date"),rs.getInt("view"), rs.getString("content"));
+				}
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
-}
 
+			return dto;
+		}
+		
+		public void updateView(int No) {
+			String sql = "update forum  set view = view+1 where No = ?";
+			
+		
+			try(Connection con = getConnection();
+					PreparedStatement pstmt = con.prepareStatement(sql);) 
+				{	pstmt.setInt(1, No);
+					
+					
+					pstmt.executeQuery();
+					
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+		}	
+}

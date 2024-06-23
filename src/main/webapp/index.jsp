@@ -1,10 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
+    import ="java.sql.*, javax.naming.*, javax.sql.DataSource"%>
 <!DOCTYPE html>
 <html>
  <head>
-    <title>PartsSale - ��ǻ�� ��ǰ�� PartsSale</title>
+  <script src="navbarLoad.js"></script>
+    <title>PartsSale - 컴퓨터 부품은 PartsSale</title>
     <meta property="og:title" content="Mobillio Online Store1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
@@ -47,9 +48,9 @@
     />
   </head>
   <body>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <div>
-      <link href="./index.css" rel="stylesheet" />
+      <link href="./css/index.css" rel="stylesheet" />
 
       <div class="page4-container">
         <div class="page4-navbar">
@@ -68,15 +69,15 @@
                 </a>
                 <div class="page4-middle">
                   <div class="page4-left">
-                    <span class="page4-text navbar-link">
-                      <span>�׷���ī��</span>
+                    <span class="page4-text navbar-link" OnClick="location.href='./login/warring.jsp'">
+                      <span>그래픽카드</span>
                       <br />
                     </span>
-                    <span class="page4-text03 navbar-link">
+                    <span class="page4-text03 navbar-link" OnClick="location.href='./login/warring.jsp'">
                       <span>CPU</span>
                       <br />
                     </span>
-                    <span class="page4-text06 navbar-link">���κ���</span>
+                    <span class="page4-text06 navbar-link" OnClick="location.href='./login/warring.jsp'">메인보드</span>
                   </div>
                   <input
                     type="text"
@@ -89,13 +90,14 @@
                       src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMjQnIGhlaWdodD0nMjQnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nbm9uZScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz4KPHBhdGggZmlsbC1ydWxlPSdldmVub2RkJyBjbGlwLXJ1bGU9J2V2ZW5vZGQnIGQ9J00xOC4zMTkgMTQuNDMyNkMyMC43NjI4IDExLjI5NDEgMjAuNTQyIDYuNzUzNDQgMTcuNjU2OSAzLjg2ODI2QzE0LjUzMjcgMC43NDQwNjcgOS40NjczNCAwLjc0NDA2NyA2LjM0MzE1IDMuODY4MjZDMy4yMTg5NSA2Ljk5MjQ2IDMuMjE4OTUgMTIuMDU3OCA2LjM0MzE1IDE1LjE4MkM5LjIyODMzIDE4LjA2NzIgMTMuNzY5IDE4LjI4NzkgMTYuOTA3NSAxNS44NDQyQzE2LjkyMSAxNS44NTk0IDE2LjkzNTEgMTUuODc0NCAxNi45NDk3IDE1Ljg4OTFMMjEuMTkyNCAyMC4xMzE3QzIxLjU4MjkgMjAuNTIyMiAyMi4yMTYxIDIwLjUyMjIgMjIuNjA2NiAyMC4xMzE3QzIyLjk5NzEgMTkuNzQxMiAyMi45OTcxIDE5LjEwOCAyMi42MDY2IDE4LjcxNzVMMTguMzY0IDE0LjQ3NDlDMTguMzQ5MyAxNC40NjAyIDE4LjMzNDMgMTQuNDQ2MSAxOC4zMTkgMTQuNDMyNlpNMTYuMjQyNiA1LjI4MjQ4QzE4LjU4NTggNy42MjU2MiAxOC41ODU4IDExLjQyNDYgMTYuMjQyNiAxMy43Njc4QzEzLjg5OTUgMTYuMTEwOSAxMC4xMDA1IDE2LjExMDkgNy43NTczNiAxMy43Njc4QzUuNDE0MjEgMTEuNDI0NiA1LjQxNDIxIDcuNjI1NjIgNy43NTczNiA1LjI4MjQ4QzEwLjEwMDUgMi45MzkzMyAxMy44OTk1IDIuOTM5MzMgMTYuMjQyNiA1LjI4MjQ4WicgZmlsbD0nYmxhY2snLz4KPC9zdmc+Cg=="
                       class="page4-image"
                     />
-                    <span class="navbar-link">RAM</span>
-                    <span class="navbar-link">HDD/SSD</span>
-                    <span class="navbar-link">���̽�</span>
-                    <a href="warring.jsp" class="page4-navlink">�Խ���</a>
+                    <span class="navbar-link" OnClick="location.href='./login/warring.jsp'">RAM</span>
+                    <span class="navbar-link" OnClick="location.href='./login/warring.jsp'">HDD/SSD</span>
+                    <span class="navbar-link" OnClick="location.href='./login/warring.jsp'">케이스</span>
+                    <span class="navbar-link" OnClick="location.href='./login/warring.jsp'">게시판</span>
                   </div>
                 </div>
                 <div class="page4-icons">
+                 <a href="./login/warring.jsp" class="page4-navlink1">
                   <img
                     alt="iconsbxscart3271299"
                     src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMjQnIGhlaWdodD0nMjQnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nbm9uZScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz4KPHBhdGggZD0nTTIxLjgyMiA3LjQzMUMyMS42MzUgNy4xNjEgMjEuMzI4IDcgMjEgN0g3LjMzM0w2LjE3OSA0LjIzQzUuODY3IDMuNDgyIDUuMTQzIDMgNC4zMzMgM0gyVjVINC4zMzNMOS4wNzcgMTYuMzg1QzkuMjMyIDE2Ljc1NyA5LjU5NiAxNyAxMCAxN0gxOEMxOC40MTcgMTcgMTguNzkgMTYuNzQxIDE4LjkzNyAxNi4zNTJMMjEuOTM3IDguMzUyQzIyLjA1MiA4LjA0NCAyMi4wMDkgNy43IDIxLjgyMiA3LjQzMVonIGZpbGw9JyMxNjE2MTYnLz4KPHBhdGggZD0nTTEwLjUgMjFDMTEuMzI4NCAyMSAxMiAyMC4zMjg0IDEyIDE5LjVDMTIgMTguNjcxNiAxMS4zMjg0IDE4IDEwLjUgMThDOS42NzE1NyAxOCA5IDE4LjY3MTYgOSAxOS41QzkgMjAuMzI4NCA5LjY3MTU3IDIxIDEwLjUgMjFaJyBmaWxsPScjMTYxNjE2Jy8+CjxwYXRoIGQ9J00xNy41IDIxQzE4LjMyODQgMjEgMTkgMjAuMzI4NCAxOSAxOS41QzE5IDE4LjY3MTYgMTguMzI4NCAxOCAxNy41IDE4QzE2LjY3MTYgMTggMTYgMTguNjcxNiAxNiAxOS41QzE2IDIwLjMyODQgMTYuNjcxNiAyMSAxNy41IDIxWicgZmlsbD0nIzE2MTYxNicvPgo8L3N2Zz4K"
@@ -106,7 +108,7 @@
                     src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMjQnIGhlaWdodD0nMjQnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nbm9uZScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz4KPHBhdGggZD0nTTEyIDJDNi40ODYgMiAyIDYuNDg2IDIgMTJDMiAxNy41MTQgNi40ODYgMjIgMTIgMjJDMTcuNTE0IDIyIDIyIDE3LjUxNCAyMiAxMkMyMiA2LjQ4NiAxNy41MTQgMiAxMiAyWk0xNi4xODYgMTIuNzRMMTIgMTYuOTI2TDcuODE0IDEyLjc0QzYuNzI1IDExLjY1MiA2LjcyNSA5LjkyNyA3LjgxNCA4LjgzM0M4LjkwOCA3Ljc0NSAxMC42MzIgNy43NDUgMTEuNzIgOC44MzNMMTIgOS4xMTJMMTIuMjc5IDguODMzQzEzLjM2NyA3Ljc0NSAxNS4wOTIgNy43NDUgMTYuMTg1IDguODMzQzE3LjI3NCA5LjkyNyAxNy4yNzQgMTEuNjUxIDE2LjE4NiAxMi43NFonIGZpbGw9JyMxNjE2MTYnLz4KPC9zdmc+Cg=="
                     class="page4-image2"
                   />
-                  <a href="login.jsp" class="page4-navlink1">
+                  <a href="./login/login.jsp" class="page4-navlink1">
                     <img
                       alt="AccountCircle3271301"
                       src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMjQnIGhlaWdodD0nMjQnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nbm9uZScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz4KPHBhdGggZD0nTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyQzIgMTcuNTIgNi40OCAyMiAxMiAyMkMxNy41MiAyMiAyMiAxNy41MiAyMiAxMkMyMiA2LjQ4IDE3LjUyIDIgMTIgMlpNMTIgNUMxMy42NiA1IDE1IDYuMzQgMTUgOEMxNSA5LjY2IDEzLjY2IDExIDEyIDExQzEwLjM0IDExIDkgOS42NiA5IDhDOSA2LjM0IDEwLjM0IDUgMTIgNVpNMTIgMTkuMkM5LjUgMTkuMiA3LjI5IDE3LjkyIDYgMTUuOThDNi4wMyAxMy45OSAxMCAxMi45IDEyIDEyLjlDMTMuOTkgMTIuOSAxNy45NyAxMy45OSAxOCAxNS45OEMxNi43MSAxNy45MiAxNC41IDE5LjIgMTIgMTkuMlonIGZpbGw9JyMxNjE2MTYnLz4KPC9zdmc+Cg=="
@@ -184,7 +186,7 @@
                   <div class="page4-btn-group">
                     <button type="submit" class="button">
                       <span>
-                        <span>���� �����ϱ�</span>
+                        <span>지금 구매하기</span>
                         <br />
                       </span>
                     </button>
@@ -192,51 +194,188 @@
                 </div>
                 <img
                   alt="image"
-                  src="4090-500h.jpg"
+                  src="./image/4070.jpg"
                   class="page4-image5"
                 />
               </div>
             </div>
           </div>
         </div>
+        <div class="page10-container05">
+          <div class="page10-container06">
+            <div class="page10-container07">
+              <h1 class="page10-text28">상품</h1>
+              <div class="page10-container08">
+                <div
+                  data-thq="slider"
+                  data-autoplay="true"
+                  data-navigation="true"
+                  data-pagination="true"
+                  data-autoplay-delay="4000"
+                  class="page10-slider swiper"
+                >
+                  <div data-thq="slider-wrapper" class="swiper-wrapper">
+                    <div
+                      data-thq="slider-slide"
+                      class="page10-slider-slide swiper-slide"
+                    >
+                      <a href="page2.html" class="page10-navlink4">
+                        <img
+                          alt="image"
+                          src="./image/4070ti-500w.webp"
+                          class="page10-image06"
+                        />
+                      </a>
+                    </div>
+                    <div
+                      data-thq="slider-slide"
+                      class="page10-slider-slide1 swiper-slide"
+                    >
+                      <img
+                        alt="image"
+                        src="./image/4060.png"
+                        class="page10-image07"
+                      />
+                    </div>
+                    <div
+                      data-thq="slider-slide"
+                      class="page10-slider-slide2 swiper-slide"
+                    >
+                      <img
+                        alt="image"
+                        src="./image/7600.png"
+                        class="page10-image08"
+                      />
+                    </div>
+                    <div
+                      data-thq="slider-slide"
+                      class="page10-slider-slide3 swiper-slide"
+                    >
+                      <img
+                        alt="image"
+                        src="./image/gigabyte 4070-900h.png"
+                        class="page10-image09"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    data-thq="slider-pagination"
+                    class="page10-slider-pagination swiper-pagination swiper-pagination-bullets swiper-pagination-horizontal"
+                  >
+                    <div
+                      data-thq="slider-pagination-bullet"
+                      class="swiper-pagination-bullet swiper-pagination-bullet-active"
+                    ></div>
+                  </div>
+                  <div
+                    data-thq="slider-button-prev"
+                    class="swiper-button-prev"
+                  ></div>
+                  <div
+                    data-thq="slider-button-next"
+                    class="swiper-button-next"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div class="page10-container09">
+              <h1 class="page10-text29">후기</h1>
+              <div class="page10-container10">
+                <div
+                  data-thq="slider"
+                  data-autoplay="true"
+                  data-navigation="true"
+                  data-pagination="true"
+                  data-autoplay-delay="4000"
+                  class="page10-slider1 swiper"
+                >
+                  <div data-thq="slider-wrapper" class="swiper-wrapper">
+                    <div
+                      data-thq="slider-slide"
+                      class="page10-slider-slide4 swiper-slide"
+                    >
+                      <img
+                        alt="image"
+                        src="./image/review3-400h.jpg"
+                        class="page10-image10 thq-link"
+                      />
+                    </div>
+                    <div
+                      data-thq="slider-slide"
+                      class="page10-slider-slide5 swiper-slide"
+                    >
+                      <img
+                        alt="image"
+                        src="./image/review2-500h.jpg"
+                        class="page10-image11 thq-link"
+                      />
+                    </div>
+                    <div
+                      data-thq="slider-slide"
+                      class="page10-slider-slide6 swiper-slide"
+                    >
+                      <img
+                        alt="image"
+                        src="./image/review4-1400w.jpg"
+                        class="page10-image12 thq-link"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    data-thq="slider-pagination"
+                    class="page10-slider-pagination1 swiper-pagination swiper-pagination-bullets swiper-pagination-horizontal"
+                  >
+                    <div
+                      data-thq="slider-pagination-bullet"
+                      class="swiper-pagination-bullet swiper-pagination-bullet-active"
+                    ></div>
+                    <div
+                      data-thq="slider-pagination-bullet"
+                      class="swiper-pagination-bullet"
+                    ></div>
+                    <div
+                      data-thq="slider-pagination-bullet"
+                      class="swiper-pagination-bullet"
+                    ></div>
+                  </div>
+                  <div
+                    data-thq="slider-button-prev"
+                    class="swiper-button-prev"
+                  ></div>
+                  <div
+                    data-thq="slider-button-next"
+                    class="swiper-button-next"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         <div class="page4-footer">
           <div class="max-width-container">
             <footer class="page4-footer1">
               <div class="page4-container5">
-                <h3 class="page4-text27 Heading-3">MOBILLIO</h3>
+                <h3 class="page4-text27 Heading-3">팀 롯데 자이언츠</h3>
                 <span class="page4-text28">
-                  <span>4517 Washington Ave. Manchester, Kentucky 39495,</span>
+                  <span>팀장 전종민</span>
                   <br />
-                  <span>United States</span>
+                  <span>팀원 최진혁</span>
+                  <span>팀원 김민기</span>
                 </span>
-                <span class="page4-text31">(671) 555-0110</span>
-                <span class="page4-text32">contact@mobillio.com</span>
+                <span class="page4-text31">010-6605-9738</span>
+                <span class="page4-text32">jnjjb05@naver.com</span>
               </div>
               <div class="page4-links-container">
                 <div class="page4-container6">
-                  <span class="page4-text33">Categories</span>
-                  <span class="page4-text34">Collections</span>
-                  <span class="page4-text35">Desks</span>
-                  <span class="page4-text36">Furniture</span>
-                  <span class="page4-text37">Lamps</span>
-                  <span class="page4-text38">Plants</span>
-                  <span class="page4-text39">Decoration</span>
+                  <span class="page4-text33">백엔드프로그래밍</span>
+                  <span class="page4-text34">1학기</span>
+                  <span class="page4-text35">조별과제</span>
+                  <span class="page4-text36">부품판매사이트</span>
+                  <span class="page4-text37">PartsSale</span>
+                  
                 </div>
-                <div class="page4-container7">
-                  <span class="page4-text40">Company</span>
-                  <span class="page4-text41">Shop</span>
-                  <span class="page4-text42">Lookbook</span>
-                  <span class="page4-text43">Specials</span>
-                  <span class="page4-text44">About</span>
-                  <span class="page4-text45">Blog</span>
-                </div>
-                <div class="page4-container8">
-                  <span class="page4-text46">Resources</span>
-                  <span class="page4-text47">Contact us</span>
-                  <span class="page4-text48">Order</span>
-                  <span class="page4-text49">Track your order</span>
-                  <span class="page4-text50">Shipping &amp; Delivery</span>
-                </div>
+                
               </div>
             </footer>
           </div>

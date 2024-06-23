@@ -65,7 +65,7 @@ public class LoginnDAO {
     		ResultSet rs = pstmt.executeQuery();
     		
     		if(rs.next()) {
-    			 dto = new LoginnDTO(rs.getString("email"),rs.getString("pwd"),rs.getString("name"));
+    			 dto = new LoginnDTO(rs.getString("email"),rs.getString("pwd"),rs.getString("name"),rs.getInt("point"));
     		}
     		
     		} catch (Exception e) {
@@ -73,6 +73,8 @@ public class LoginnDAO {
 		}
     	return dto;
     }
+    
+   
  // 로그인 데이터 변경 메서드
     public void update(LoginnDTO dto) {
         String sql = "update loginn set name = ?, pwd = ? where email = ?";
@@ -82,6 +84,19 @@ public class LoginnDAO {
             pstmt.setString(1, dto.getName());
             pstmt.setString(2, dto.getPwd());
             pstmt.setString(3, dto.getEmail());
+            pstmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void buy(LoginnDTO dto,int price) {
+        String sql = "update loginn set point = ? where email = ?";
+
+        try (Connection con = getConnection();
+            PreparedStatement pstmt = con.prepareStatement(sql)) {
+            pstmt.setInt(1, dto.getPoint()-price);
+            pstmt.setString(2, dto.getEmail());
             pstmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -133,8 +148,9 @@ public class LoginnDAO {
         }
         return null; // 만약 이름 값을 찾지 못하면 null 반환
     }
+   
 
-    
+    // 사용자 존재 여부에 따라 다른 처리를 수행하는 메소드
     
 }
      

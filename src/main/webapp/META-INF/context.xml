@@ -31,9 +31,9 @@
     auth = "Container"
     type="javax.sql.DataSource"
     driverClassName = "org.mariadb.jdbc.Driver"
-    username="jsp"
+    username="jmax"
     password="1111"
-    url="jdbc:mariadb://localhost:3306/jspdb"
+    url="jdbc:mariadb://localhost:3306/jmaxdb"
     maxWait = "5000"   
  />
    
